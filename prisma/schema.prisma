@@ -1,0 +1,22 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Template {
+  id           String   @id @default(uuid())
+  name         String
+  description  String?
+  category     String   @default("minimal")
+  htmlCode     String   @default("")
+  cssCode      String   @default("")
+  jsCode       String   @default("")
+  previewStyle String   @default("background:#fff;padding:40px 20px;font-family:sans-serif;")
+  isPublished  Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
