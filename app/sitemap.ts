@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import prisma from '../lib/prisma';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://faqtemplates.com';
+  const baseUrl = 'https://faqtemplates.us';
 
   const templates = await prisma.template.findMany({
     where: { isPublished: true },
